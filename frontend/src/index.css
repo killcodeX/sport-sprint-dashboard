@@ -49,6 +49,7 @@ body {
   left:var(--appside-bar-width);
   height: var(--app-header-height);
   padding: 35px 10px;
+  background: var(--cardBG);
 }
 
 /* aside componenet */
@@ -56,6 +57,7 @@ body {
 .aside {
   position: fixed;
   top: 0;
+  z-index: 100;
   width: var(--appside-bar-width);
   background: var(--layoutBG);
   height: var(--aside-toolbar-height);
@@ -73,6 +75,7 @@ body {
   top:25px;
   right: -25px;
   background-color: var(--cardBG);
+  z-index: 100;
 }
 
 /************************** Modules **************************/
@@ -81,4 +84,6 @@ body {
   margin-left: var(--appside-bar-width);
   margin-top: var(--app-header-height);
   background: var(--screenBG);
+  padding: 50px;
+  height: 100vh;
 }

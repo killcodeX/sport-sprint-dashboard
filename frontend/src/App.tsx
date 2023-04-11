@@ -1,15 +1,15 @@
 import React from "react";
-import Layout from "./layouts/components/aside";
+import Layout from "./layouts";
 import Home from "./modules/home";
-
-import "./App.css";
 
 function App() {
   return (
     <>
       {" "}
       <Layout />
+      <div className="app-wrapper">
       <Home />
+      </div>
     </>
   );
 }

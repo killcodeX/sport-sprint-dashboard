@@ -1,6 +1,8 @@
 import React from "react";
 import { SlMenu } from "react-icons/sl";
-import { useWindowSize } from "../../../helpers/useWindowSize"
+import ThemeChange from "./themeChange";
+import UserSettings from "./userSettings";
+import { useWindowSize } from "../../../helpers/useWindowSize";
 
 export default function Header() {
   let width = useWindowSize().width;
@@ -17,7 +19,10 @@ export default function Header() {
             </>
           ) : null}
         </div>
-        <div className="header-right">Right</div>
+        <div className="header-right">
+          <ThemeChange />
+          <UserSettings />
+        </div>
       </div>
     </div>
   );

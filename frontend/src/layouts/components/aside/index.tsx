@@ -29,7 +29,7 @@ export default function Aside({ asideClose, setAsideClose }: any) {
         {asideClose ? (
           <div
             data-cy="aside-button-close"
-            className="aside-close btn btn-icon btn-color-muted shadow-lg"
+            className="aside-close icon btn btn-icon btn-color-muted shadow-lg"
             onClick={handleAsideClose}
           >
             <BsChevronDoubleRight />
@@ -37,7 +37,7 @@ export default function Aside({ asideClose, setAsideClose }: any) {
         ) : (
           <div
             data-cy="aside-button-open"
-            className="aside-close btn btn-icon btn-color-muted shadow-lg"
+            className="aside-close icon btn btn-icon btn-color-muted shadow-lg"
             onClick={handleAsideClose}
           >
             <BsChevronDoubleLeft />

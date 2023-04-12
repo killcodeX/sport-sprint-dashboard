@@ -1,8 +1,7 @@
 import React from "react";
 import { BsChevronDoubleLeft, BsChevronDoubleRight } from "react-icons/bs";
 
-export default function Aside({asideClose, setAsideClose}:any) {
-
+export default function Aside({ asideClose, setAsideClose }: any) {
   //
   // * This function on click reduces the width of aside menu
   // * It modifies root varible width
@@ -13,10 +12,10 @@ export default function Aside({asideClose, setAsideClose}:any) {
         "--appside-bar-width",
         "15rem"
       );
-      document.querySelector('.rest-logo')?.classList.remove('hide')
+      document.querySelector(".rest-logo")?.classList.remove("hide");
     } else {
       document.documentElement.style.setProperty("--appside-bar-width", "5rem");
-      document.querySelector('.rest-logo')?.classList.add('hide')
+      document.querySelector(".rest-logo")?.classList.add("hide");
     }
     setAsideClose(!asideClose);
   };
@@ -24,9 +23,12 @@ export default function Aside({asideClose, setAsideClose}:any) {
   return (
     <div className="aside">
       <div className="container">
-      <div className="logo">S<span className="rest-logo">ports Stride</span></div>
+        <div data-cy="logo" className="logo">
+          S<span className="rest-logo">ports Sprint</span>
+        </div>
         {asideClose ? (
           <div
+            data-cy="aside-button-close"
             className="aside-close btn btn-icon btn-color-muted shadow-lg"
             onClick={handleAsideClose}
           >
@@ -34,6 +36,7 @@ export default function Aside({asideClose, setAsideClose}:any) {
           </div>
         ) : (
           <div
+            data-cy="aside-button-open"
             className="aside-close btn btn-icon btn-color-muted shadow-lg"
             onClick={handleAsideClose}
           >

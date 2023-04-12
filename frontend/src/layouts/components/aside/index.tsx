@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { BsChevronDoubleLeft, BsChevronDoubleRight } from "react-icons/bs";
 
-export default function Aside() {
-  const [asideClose, setAsideClose] = useState(false);
+export default function Aside({asideClose, setAsideClose}:any) {
 
   //
   // * This function on click reduces the width of aside menu
@@ -14,8 +13,10 @@ export default function Aside() {
         "--appside-bar-width",
         "15rem"
       );
+      document.querySelector('.rest-logo')?.classList.remove('hide')
     } else {
       document.documentElement.style.setProperty("--appside-bar-width", "5rem");
+      document.querySelector('.rest-logo')?.classList.add('hide')
     }
     setAsideClose(!asideClose);
   };
@@ -23,11 +24,7 @@ export default function Aside() {
   return (
     <div className="aside">
       <div className="container">
-        {asideClose ? (
-          <div className="logo">S</div>
-        ) : (
-          <div className="logo">Sports Stride</div>
-        )}
+      <div className="logo">S<span className="rest-logo">ports Stride</span></div>
         {asideClose ? (
           <div
             className="aside-close btn btn-icon btn-color-muted shadow-lg"

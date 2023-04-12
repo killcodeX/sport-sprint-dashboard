@@ -7,8 +7,9 @@
   --cardBG: #ffffff;
   --fontColor: #3f4254;
   --app-header-height: 90px;
+  --app-header-width: 84%;
   --appside-bar-width: 15rem;
-  --aside-toolbar-height:100vh;
+  --aside-toolbar-height: 100vh;
 }
 
 /* for dark theme */
@@ -35,7 +36,7 @@ body {
 
 /************************** Layout **************************/
 
-.app-menu{
+.app-menu {
   display: flex;
   flex-direction: column;
 }
@@ -44,12 +45,25 @@ body {
 
 .header {
   position: fixed;
-  width: 100%;
+  width: calc(100% - var(--appside-bar-width));
   top: 0;
-  left:var(--appside-bar-width);
+  left: var(--appside-bar-width);
   height: var(--app-header-height);
   padding: 35px 10px;
   background: var(--cardBG);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.header-left {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 /* aside componenet */
@@ -62,17 +76,18 @@ body {
   background: var(--layoutBG);
   height: var(--aside-toolbar-height);
   padding: 30px 10px;
+  transition: width 0.3s ease;
 }
 
-.logo{
+.logo {
   font-size: 1.5rem;
   color: #ffffff;
   padding-bottom: 25px;
 }
 
-.aside-close{
+.aside-close {
   position: absolute;
-  top:25px;
+  top: 25px;
   right: -25px;
   background-color: var(--cardBG);
   z-index: 100;
@@ -86,4 +101,10 @@ body {
   background: var(--screenBG);
   padding: 50px;
   height: 100vh;
+}
+
+@media (max-width: 480px) {
+  :root {
+    --appside-bar-width: 0rem;
+  }
 }

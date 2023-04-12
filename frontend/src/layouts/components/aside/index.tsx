@@ -3,6 +3,11 @@ import { BsChevronDoubleLeft, BsChevronDoubleRight } from "react-icons/bs";
 
 export default function Aside() {
   const [asideClose, setAsideClose] = useState(false);
+
+  //
+  // * This function on click reduces the width of aside menu
+  // * It modifies root varible width
+  //
   const handleAsideClose = () => {
     if (asideClose) {
       document.documentElement.style.setProperty(

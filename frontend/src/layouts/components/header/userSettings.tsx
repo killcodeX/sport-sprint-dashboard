@@ -1,20 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import { useOnClickOutside } from "../../../helpers/useOutsideComp";
 
 export default function UserSettings() {
+  const currentComp = useRef<HTMLDivElement>(null);
   const [displaySetting, setDisplaySetting] = useState(false);
+  useOnClickOutside(currentComp, () => setDisplaySetting(false));
+
   return (
-    <div
-      className="userSetting-header"
-      onClick={() => setDisplaySetting(!displaySetting)}
-    >
-      <div className="user-profile-header">
+    <div className="userSetting-header">
+      <div
+        className="user-profile-header"
+        onClick={() => setDisplaySetting(!displaySetting)}
+      >
         <img
           src="https://randomuser.me/api/portraits/women/8.jpg"
           alt="user-profile-header"
         />
       </div>
       {displaySetting ? (
-        <div className="user-profile-header-options">
+        <div className="user-profile-header-options" ref={currentComp}>
           <div className="user-profile-header-top">
             <div className="user-profile-header-details">
               <div className="user-profile-header-details-image">

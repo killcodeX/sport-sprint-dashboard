@@ -6,6 +6,7 @@ import { useWindowSize } from "../helpers/useWindowSize";
 
 export default function Menu() {
   const [asideClose, setAsideClose] = useState(false);
+  const [mobileMenu, setMobileMenu] = useState(false);
   let width = useWindowSize().width;
 
 
@@ -24,13 +25,23 @@ export default function Menu() {
       document.querySelector('.rest-logo')?.classList.add('hide')
       setAsideClose(true)
     }
-  }, [width])
+
+    if(mobileMenu){
+      // document.documentElement.style.setProperty(
+      //   "--asideMobileMenuWidth",
+      //   "300px"
+      // );
+      console.log('mobilemenu', mobileMenu)
+    }
+  }, [width, mobileMenu])
 
 
   return (
     <div className="app-menu">
-     { width > 700?  <Aside asideClose={asideClose} setAsideClose={setAsideClose} />: <MobileAside/>}
-      <Header/>
+     { width > 700?  <Aside asideClose={asideClose} setAsideClose={setAsideClose} />: null}
+      <Header mobileMenu={mobileMenu} setMobileMenu={setMobileMenu}/>
     </div>
   );
 }
+
+//<MobileAside/>

@@ -4,7 +4,12 @@ import ThemeChange from "./themeChange";
 import UserSettings from "./userSettings";
 import { useWindowSize } from "../../../helpers/useWindowSize";
 
-export default function Header() {
+interface IProps {
+  mobileMenu: boolean;
+  setMobileMenu: (value: boolean) => void;
+}
+
+export default function Header({ mobileMenu, setMobileMenu }: IProps) {
   let width = useWindowSize().width;
   return (
     <div className="header shadow-sm">
@@ -12,7 +17,10 @@ export default function Header() {
         <div className="header-left">
           {width < 700 ? (
             <>
-              <div className="hamburger">
+              <div
+                className="hamburger"
+                onClick={() => setMobileMenu(!mobileMenu)}
+              >
                 <SlMenu />
               </div>
               <div className="logo-mobile">Sports</div>

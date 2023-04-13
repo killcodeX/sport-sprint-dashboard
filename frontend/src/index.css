@@ -13,7 +13,7 @@
   --link-active-color: #009ef7;
   --drop-down-box-shadow: 0px 0px 50px 0px rgb(82, 63, 105, 0.15);
   --highLightLayer: #ffffff;
-  --asideMobileMenuWidth:0;
+  --asideMobileMenuWidth: 0;
 }
 
 /* for dark theme */
@@ -84,6 +84,10 @@ body {
   align-items: center;
   gap: 2rem;
   color: var(--fontColor);
+}
+
+.hamburger {
+  font-size: 1.5rem;
 }
 
 @media (max-width: 480px) {
@@ -195,7 +199,7 @@ body {
 }
 
 .user-profile-header-option {
-  padding:0.5rem 0;
+  padding: 0.5rem 0;
   color: #7e8299;
 }
 
@@ -262,16 +266,33 @@ span.rest-logo.hide {
 
 /* Mobile Aside componenet */
 
-.mobile-aside{
+.mobile-aside {
   position: fixed;
-  top:0;
-  left:0;
-  width:var(--asideMobileMenuWidth);
+  top: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  width: var(--asideMobileMenuWidth);
   background: var(--layoutBG);
   height: var(--aside-toolbar-height);
-  z-index:100;
+  z-index: 100;
   padding: 30px 10px;
-  transition: width 0.3s ease;
+  transition: width 2.5s ease;
+}
+
+.mobile-aside.open {
+  width: 300px;
+  opacity: 1;
+  visibility: visible;
+  transition: width 0.5s ease;
+}
+
+.mobile-aside-close {
+  position: absolute;
+  top: 30px;
+  right: 15px;
+  background-color: var(--highLightLayer);
+  color: var(--fontColor);
 }
 /************************** Modules **************************/
 

@@ -27,18 +27,17 @@ export default function Menu() {
     }
 
     if(mobileMenu){
-      // document.documentElement.style.setProperty(
-      //   "--asideMobileMenuWidth",
-      //   "300px"
-      // );
+      document.querySelector('.mobile-aside')?.classList.add('open')
       console.log('mobilemenu', mobileMenu)
+    }else{
+      document.querySelector('.mobile-aside')?.classList.remove('open')
     }
   }, [width, mobileMenu])
 
 
   return (
     <div className="app-menu">
-     { width > 700?  <Aside asideClose={asideClose} setAsideClose={setAsideClose} />: null}
+     { width > 700?  <Aside asideClose={asideClose} setAsideClose={setAsideClose} />: <MobileAside mobileMenu={mobileMenu} setMobileMenu={setMobileMenu}/>}
       <Header mobileMenu={mobileMenu} setMobileMenu={setMobileMenu}/>
     </div>
   );
